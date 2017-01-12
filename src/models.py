@@ -18,13 +18,11 @@ class MLP:
             input_dim(integer): 入力パラメータ数
             output_dim(integer): 出力数
         """
-        self.input_dim = input_dim
-        self.output_dim = output_dim
         self.layers = Sequential([
             LayerStack(3, lambda i: [
                 Dense([256, 128, 64][i], init=he_uniform(), activation=relu)
             ]),
-            Dense(self.output_dim, activation=None)
+            Dense(output_dim, activation=None)
         ])
 
 class CNN:
@@ -38,8 +36,6 @@ class CNN:
             input_dim(integer): 入力パラメータ数
             output_dim(integer): 出力数
         """
-        self.input_dim = input_dim
-        self.output_dim = output_dim
         with default_options(activation=relu, pad=False):
             self.layers = Sequential([
                 LayerStack(3, lambda i: [
@@ -48,6 +44,6 @@ class CNN:
                 ]),
                 Dense(96, init=he_uniform()),
                 Dropout(0.5),
-                Dense(self.output_dim, activation=None)
+                Dense(output_dim, activation=None)
             ])
 

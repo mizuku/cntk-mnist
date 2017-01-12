@@ -12,7 +12,7 @@ from cntk.device import cpu, set_default_device
 from cntk.learner import learning_rate_schedule, UnitType, sgd, adagrad, momentum_sgd, adam_sgd, momentum_as_time_constant_schedule
 from cntk.utils import get_train_loss, get_train_eval_criterion
 
-from model import CNN
+from models import CNN
 
 abs_path = os.path.dirname(os.path.abspath(__file__))
 
@@ -107,11 +107,11 @@ if __name__ == "__main__":
     input_data = input_dim[0] * input_dim[1] * input_dim[2]
     num_output_classes = 10 # 分類数
 
-    train_path = os.path.normpath(os.path.join(abs_path, "dataset", "Train-28x28_cntk_text.txt"))
+    train_path = os.path.normpath(os.path.join(abs_path, "..", "datasets", "Train-28x28_cntk_text.txt"))
     check_path(train_path)
     reader_train = create_reader(train_path, True, input_data, num_output_classes)
 
-    test_path = os.path.normpath(os.path.join(abs_path, "dataset", "Test-28x28_cntk_text.txt"))
+    test_path = os.path.normpath(os.path.join(abs_path, "..", "datasets", "Test-28x28_cntk_text.txt"))
     check_path(test_path)
     reader_test = create_reader(test_path, False, input_data, num_output_classes)
 

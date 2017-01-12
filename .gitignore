@@ -89,4 +89,4 @@ ENV/
 .ropeproject
 
 # My project settings
-src/dataset/
+datasets/
