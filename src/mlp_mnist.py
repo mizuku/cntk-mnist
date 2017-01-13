@@ -8,7 +8,6 @@ from cntk import Trainer
 from cntk.io import MinibatchSource, CTFDeserializer, StreamDef, StreamDefs, \
                     INFINITELY_REPEAT, FULL_DATA_SWEEP
 from cntk.ops import input_variable, constant, element_times, cross_entropy_with_softmax, classification_error
-from cntk.device import cpu, set_default_device
 from cntk.learner import learning_rate_schedule, UnitType, sgd
 from cntk.utils import get_train_loss, get_train_eval_criterion
 
